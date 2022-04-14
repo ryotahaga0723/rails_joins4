@@ -29,4 +29,4 @@ class ExercisesController < ApplicationController
     #@customer = Customer.joins(:orders)←orderをした顧客
     @customer = Customer.joins(orders: :foods).select("customers.*,sum(foods.price) AS foods_price_sum").group(:id).order('sum(price) desc').first
   end
-  
+end
